@@ -1,0 +1,14 @@
+package com.xworkz.core_java.oops.has_a_relationship;
+
+public class stringtointconversion2 {
+	//Java Program to understand the working of string concatenation operator   
+	public static void main(String args[]){  
+	//Declaring String variable  
+	String s="200";  
+	//Converting String into int using Integer.parseInt()  
+	int i=Integer.parseInt(s);  
+	System.out.println(s+100);//200100, because "200"+100, here + is a string concatenation operator  
+	System.out.println(i+100);//300, because 200+100, here + is a binary plus operator  
+	}}  
+
+

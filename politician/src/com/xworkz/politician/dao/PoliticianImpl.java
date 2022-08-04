@@ -182,13 +182,13 @@ public class PoliticianImpl implements PoliticianDAO {
 		}
 
 		return null;
-	}//FOURTH METHOD COMPLETED
+	}// FOURTH METHOD COMPLETED
 
 	@Override
 	public PoliticianDTO findByIdAndName(Integer id, String name) {
 		try {
 			Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());
-			
+
 			String search = "select * from politician_info.politician where pid = ? and politicianname = ?";
 			PreparedStatement stmt = connection.prepareStatement(search);
 			stmt.setInt(1, id);
@@ -222,25 +222,23 @@ public class PoliticianImpl implements PoliticianDAO {
 
 			}
 
-			
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		return null;
-	}//FIFTH METHOD COMPLETED
+	}// FIFTH METHOD COMPLETED
 
 	@Override
 	public PoliticianDTO findNameById(Integer id) {
 		try {
 			Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());
-			
+
 			String search = "select 'name' from politician_info.politician where pid = ?";
 			PreparedStatement stmt = connection.prepareStatement(search);
 			stmt.setInt(1, id);
-			
-			
+
 			ResultSet resultSet = stmt.executeQuery();
 			while (resultSet.next()) {
 				Integer pid = resultSet.getInt(1);
@@ -268,18 +266,14 @@ public class PoliticianImpl implements PoliticianDAO {
 				return politicianDTO;
 
 			}
-			
 
-			
-			
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
-		
+
 		return null;
-	}//SIXTH METHOD COMLETED
+	}// SIXTH METHOD COMLETED
 
 	@Override
 	public PoliticianDTO findPresidentByIdAndName(Integer id, String name) {
@@ -287,11 +281,9 @@ public class PoliticianImpl implements PoliticianDAO {
 			Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());
 			String search = "select * from politician_info.politician where pid = ? and politicianname = ?";
 			PreparedStatement stmt = connection.prepareStatement(search);
-			stmt.setInt(1,id);
-			stmt.setString(2,name);
-			
-			
-			
+			stmt.setInt(1, id);
+			stmt.setString(2, name);
+
 			ResultSet resultSet = stmt.executeQuery();
 			while (resultSet.next()) {
 				Integer pid = resultSet.getInt(1);
@@ -318,17 +310,14 @@ public class PoliticianImpl implements PoliticianDAO {
 				return politicianDTO;
 
 			}
-			
 
-			
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
-	
+
 		return null;
-	}//SEVENTH METHOD COMLETED
+	}// SEVENTH METHOD COMLETED
 
 	@Override
 	public int getTotal() {

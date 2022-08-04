@@ -18,16 +18,16 @@ DEFAULT("NA");
 		return combination;
 	}
 	
-	public static  Qualification getByValue(String Value) {
-		
-		Qualification[] qualification 	= Qualification.values();
-
-		for(Qualification qualification2:qualification) {
-			System.out.println(qualification2.combination+"comparing");
-			if(qualification2.equals(Value)) {
-				return qualification2;
+	public static Qualification getByCombination(String combination) {
+		Qualification[] qualifications=Qualification.values();
+		for(Qualification qualification:qualifications) {
+			if(qualification.combination.equals(combination)) {
+				return qualification;
 			}
-		}
+		
+		
+
+			}
 			return null;
 		
 }

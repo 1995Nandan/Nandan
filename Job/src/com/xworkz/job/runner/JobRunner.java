@@ -28,6 +28,8 @@ public class JobRunner {
 		dao.save(dto6);
 	JobDto id  = dao.findByIdAndDesignation(1,"software developer");
 	System.out.println(id);
-		
+	
+		JobDto id1=dao.findByIdAndDesignationAndQualification(2, "sytem admin","BSC");
+		System.out.println(id1);
 	}
 }

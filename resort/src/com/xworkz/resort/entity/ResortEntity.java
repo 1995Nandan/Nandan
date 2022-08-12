@@ -6,6 +6,7 @@ import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.*;
@@ -14,8 +15,11 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "resort_info")
+@NoArgsConstructor
 
 public class ResortEntity implements Serializable {
+
+	@Id
 	@Column(name = "Id")
 	private int id;
 	@Column(name = "Name")
@@ -26,7 +30,7 @@ public class ResortEntity implements Serializable {
 	private LocalTime checkInTime;
 	@Column(name = "CheckOutTime")
 	private LocalTime checkOutTime;
-	@Column(name = "CreateBy")
+	@Column(name = "CreatedBy")
 	private String createBy;
 	@Column(name = "CreateDate")
 	private LocalDate createDate;

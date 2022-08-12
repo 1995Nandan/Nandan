@@ -1,25 +1,52 @@
 package com.xworkz.politician.dao;
 
-import com.xowrkz.politician.dto.PoliticianDTO;
+import java.util.Collections;
+import java.util.List;
 
-public interface PoliticianDAO {
+import com.xworkz.politician.dto.PoliticianDTO;
 
-	public Boolean saveDetails(PoliticianDTO dto);
+import lombok.Builder.Default;
 
-	public PoliticianDTO findById(Integer id);
+interface PoliticianDAO {
 
-	public PoliticianDTO findByIdPresident(Integer id, String president);
+	Boolean saveDetails(PoliticianDTO dto);
 
-	public PoliticianDTO findByIdPresidentAndName(Integer id, String president, String name);
+	PoliticianDTO findById(Integer id);
 
-	public PoliticianDTO findByIdAndName(Integer id, String name);
+	default void test() {
+		System.out.println("default impl of test");
+	}
 
-	public PoliticianDTO findNameById(Integer id);
+	PoliticianDTO findByIdPresident(Integer id, String president);
 
-	public PoliticianDTO findPresidentByIdAndName(Integer id, String name);
+	PoliticianDTO findByIdPresidentAndName(Integer id, String president, String name);
 
-	public int getTotal();
+	PoliticianDTO findByIdAndName(Integer id, String name);
 
-	public PoliticianDTO findParentByMaxMembers();
+	String findNameById(Integer id);
+
+	String findPresidentByIdAndName(Integer id, String name);
+
+	int getTotal();
+
+	PoliticianDTO findPartyNameByMaxMembers();
+
+	default List<PoliticianDTO> findAll() {
+		return Collections.EMPTY_LIST;
+	}
+
+	default List<String> findAllPartyName() {
+		return null;
+	}
+
+	default List<Integer> findAllIds() {
+		return null;
+
+	}
+
+	default List<Object> findAllNoOfMembersAndTotalBudgetAndPartyName() {
+		return null;
+
+	}
 
 }

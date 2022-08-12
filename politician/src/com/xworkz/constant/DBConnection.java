@@ -2,7 +2,7 @@ package com.xworkz.constant;
 
 public enum DBConnection {
 
-	URL("jdbc:mysql://localhost:3306/job"), USERNAME("root"), SECRET("nandansonu225");
+	URL("jdbc:mysql://localhost:3306/politician_info"), USERNAME("root"), SECRET("nandansonu225");
 
 	private String value;
 

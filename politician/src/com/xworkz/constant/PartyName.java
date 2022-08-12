@@ -17,12 +17,15 @@ public enum PartyName {
 	}
 
 	public static PartyName getByParty(String party) {
+		System.out.println("running getByPArty with" + party);
 		PartyName[] partyNames = PartyName.values();
 		for (PartyName partyName : partyNames) {
-			if (partyName.getPartyName().equals(party))
-				;
-			return partyName;
+			if (partyName.getPartyName().equals(party)) {
+				System.out.println("party name matched ");
+				return partyName;
+			}
 		}
+		System.out.println("no match for "+party);
 		return null;
 	}
 }

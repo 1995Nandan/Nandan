@@ -1,8 +1,11 @@
-import com.xowrkz.politician.dto.PoliticianDTO;
+package com.xowrkz.politician;
+
+import java.util.List;
+
 import com.xworkz.constant.PartyName;
 import com.xworkz.constant.PartySymbol;
-import com.xworkz.politician.dao.PoliticianDAO;
 import com.xworkz.politician.dao.PoliticianImpl;
+import com.xworkz.politician.dto.PoliticianDTO;
 
 public class PoliticianRunner {
 
@@ -30,7 +33,12 @@ public class PoliticianRunner {
 		PoliticianDTO politicianDTO11 = new PoliticianDTO(11, "Maya", PartyName.BSP, "No", PartySymbol.ELEPHANT, "UP",
 				"20", "Nothing", 1600000.00D);
 
-		PoliticianDAO dao = new PoliticianImpl();
+		PoliticianImpl dao = new PoliticianImpl();
+		List<PoliticianDTO> list = dao.findAll();
+		for (PoliticianDTO politicianDTO : list) {
+			System.out.println(politicianDTO);
+		}
+
 		/*
 		 * dao.saveDetails(politicianDTO1); dao.saveDetails(politicianDTO2);
 		 * dao.saveDetails(politicianDTO3); dao.saveDetails(politicianDTO4);
@@ -39,8 +47,8 @@ public class PoliticianRunner {
 		 * dao.saveDetails(politicianDTO9); dao.saveDetails(politicianDTO10);
 		 * dao.saveDetails(politicianDTO11);
 		 */
-
-		// PoliticianDTO dto = dao.findById(2);
+		// int id = 2;
+		// PoliticianDTO dto = dao.findById(id);
 		// System.out.println(dto);
 
 		// PoliticianDTO dto1 = dao.findByIdPresident(5, "Modi");
@@ -52,11 +60,22 @@ public class PoliticianRunner {
 		// PoliticianDTO dto3 = dao.findByIdAndName(5,"Reddy");
 		// System.out.println(dto3);
 
-		// PoliticianDTO dto4=dao.findNameById(6);
+		// String dto4=dao.findNameById(6);
 		// System.out.println(dto4);
 
-		//PoliticianDTO dto5 = dao.findPresidentByIdAndName(3, "Cheluva");
-		//System.out.println(dto5);
+		// String dto5 = dao.findPresidentByIdAndName(3, "Cheluva");
+		// System.out.println(dto5);
+
+		// dao.getTotal();
+
+		// PoliticianDTO dto6 = dao.findPartyNameByMaxMembers();
+		// System.out.println(dto6);
+
+		// List<String> partyName = dao.findAllPartyName();
+		// System.out.println(partyName);
+
+		List<Object> totalMembersAndtotalBudegtAndPartyName = dao.findAllNoOfMembersAndTotalBudgetAndPartyName();
+		System.out.println(totalMembersAndtotalBudegtAndPartyName);
 
 	}
 

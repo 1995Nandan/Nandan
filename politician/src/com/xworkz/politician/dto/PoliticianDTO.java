@@ -1,4 +1,4 @@
-package com.xowrkz.politician.dto;
+package com.xworkz.politician.dto;
 
 import java.io.Serializable;
 

@@ -1,6 +1,7 @@
 package com.xowrkz.dao;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -256,6 +257,171 @@ public class CartoonImpl implements CartoonDao {
 
 		}
 
+	}
+
+	@Override
+	public List<CartoonEntity> findAll() {
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAll");
+			List<CartoonEntity> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<CartoonEntity> findAllByAuthor(String author) {
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAllByAuthor");
+			query.setParameter("ar", author);
+			List<CartoonEntity> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<CartoonEntity> findAllByAuthorAndGender(String author, String gender) {
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAllByAuthorAndGender");
+			query.setParameter("ar", author);
+			query.setParameter("gr", gender);
+			List<CartoonEntity> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<String> findAllName() {
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAllName");
+			List<String> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<String> findAllCountry() {
+
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAllCountry");
+			List<String> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<Object[]> findAllNameAndCountry() {
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAllNameAndCountry");
+			List<Object[]> object = query.getResultList();
+			if (object != null) {
+
+				return object;
+			}
+
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<Object[]> findAllNameAndCountryAndAuthor() {
+
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager.createNamedQuery("findAllNameAndCountryAndAuthor");
+			List<Object[]> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			manager.close();
+
+		}
+
+		return CartoonDao.super.findAllNameAndCountryAndAuthor();
 	}
 
 }

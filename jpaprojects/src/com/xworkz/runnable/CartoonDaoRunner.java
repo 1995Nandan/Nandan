@@ -1,6 +1,7 @@
 package com.xworkz.runnable;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 
@@ -80,6 +81,21 @@ public class CartoonDaoRunner {
 		// dao.updateTypeByName("Sentiment", "ChotaBheem");
 		// dao.deleteByName("Sataman");
 
+		// dao.findAll().forEach(System.out::println);
+
+		// dao.findAllByAuthor("Manoj").forEach(System.out::println);
+
+		// dao.findAllByAuthorAndGender("Saran","Male").forEach(System.out::println);
+
+		// dao.findAllName().forEach(System.out::println);
+
+		// dao.findAllCountry().forEach(System.out::println);
+
+		// dao.findAllNameAndCountry().forEach(object->System.out.println(object[0]+"::"+object[1]));
+
+		//dao.findAllNameAndCountryAndAuthor().forEach(object -> System.out.println(object[0] + "::" + object[1] + "::" + object[2]));
+
+				
 	}
 
 }

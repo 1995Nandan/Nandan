@@ -18,7 +18,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor
-@ToString
+@ToString(callSuper = true)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -42,9 +42,21 @@ import lombok.ToString;
 
 		@NamedQuery(name = "updateTypeByName", query = "update  CartoonEntity cart set cart.Type=:tp where cart.Name=:nm"),
 
-		@NamedQuery(name = "deleteByName", query = "delete from CartoonEntity cart where cart.Name=:nm")
+		@NamedQuery(name = "deleteByName", query = "delete from CartoonEntity cart where cart.Name=:nm"),
 
-})
+		@NamedQuery(name = "findAll", query = "select cart from CartoonEntity cart"),
+
+		@NamedQuery(name = "findAllByAuthor", query = "select cart from CartoonEntity cart where cart.Author=:ar"),
+
+		@NamedQuery(name = "findAllByAuthorAndGender", query = "select cart from CartoonEntity cart where cart.Author=:ar and cart.Gender=:gr"),
+
+		@NamedQuery(name = "findAllName", query = "select cart.Name from CartoonEntity cart"),
+
+		@NamedQuery(name = "findAllCountry", query = "select cart.Country from CartoonEntity cart"),
+
+		@NamedQuery(name = "findAllNameAndCountry", query = "select cart.Name,Country from CartoonEntity cart"),
+
+		@NamedQuery(name = "findAllNameAndCountryAndAuthor", query = "select cart.Name,Country,Author from CartoonEntity cart"), })
 
 public class CartoonEntity extends ParentEntity {
 	@GenericGenerator(name = "boss", strategy = "increment")
